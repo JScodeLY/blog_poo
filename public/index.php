@@ -1,14 +1,23 @@
 <?php
 
-// je définie une constante contenant le dossier racine du projet
-define('ROOT',dirname(__DIR__));
-echo ROOT;
-// use App\Autoloader;
+use App\Autoloader;
+use App\Core\Main;
 // use App\Models\Articles;
 // use App\Models\Users;
 
-// require_once 'Autoloader.php';
-// Autoloader::register();
+// je définie une constante contenant le dossier racine du projet
+define('ROOT',dirname(__DIR__));
+
+
+// j'importe l'autoloader
+require_once ROOT.'/Autoloader.php';
+Autoloader::register();
+
+// j'instancie Main (notre router)
+$app = new Main();
+
+// je démarre l'application
+$app->start();
 
 // $model = new Articles;
 // $articles = $model->findBy(['status'=>1]);
